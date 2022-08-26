@@ -1,0 +1,14 @@
+---
+- name: "install python3 python-pip git"
+  apt:
+    name:
+      - python3
+      - python3-pip
+      - git
+    state: present
+    update_cache: true
+- name: "install flask and pytest"
+  pip:
+    name: 
+      - flask
+      - pytest

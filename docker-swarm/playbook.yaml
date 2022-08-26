@@ -1,0 +1,12 @@
+---
+- hosts: ansible
+  connection: local
+  become: true
+  roles:
+    - dockerinstall
+    - swarm
+- hosts: worker
+  become: true
+  roles:
+    - dockerinstall
+    - swarm-worker

@@ -1,0 +1,23 @@
+---
+- hosts: localhost
+  connection: local
+  become: true
+  tasks:
+  - name: install python3
+    apt:
+      name: python3
+      state: present
+    register: install_python_info
+   
+  - name: install pip
+    apt:
+      name: python3-pip
+   
+  - name: install git
+    apt:
+      name: git
+      state: present
+    
+  - name: install flask
+    pip:
+      name: flask

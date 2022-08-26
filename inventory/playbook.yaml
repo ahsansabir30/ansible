@@ -1,0 +1,20 @@
+---
+- hosts: test manager
+  become: true
+  task:
+  - name: "Ping {{ inventory_hostname }}"
+    ping:
+    register: ping_info
+
+  - name: "show ping info"
+    debug:
+      msg: "{{ ping_info }}"
+
+  - name: "install git"
+    apt: 
+      name:
+      - git
+      - python3
+      - python-pip
+      status: latest
+      update_cache: true

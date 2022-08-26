@@ -1,0 +1,14 @@
+---
+- hosts: localhost
+  connection: local
+  become: true
+  tasks:
+  - name: uninstall nginx
+    apt:
+      name: nginx
+      state: absent
+      
+  - name: Stop nginx service
+    service:
+      name: nginx
+      state: stopped

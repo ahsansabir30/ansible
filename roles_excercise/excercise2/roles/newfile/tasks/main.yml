@@ -1,0 +1,7 @@
+---
+- name: "creating new file"
+  file: 
+    path: "/home/ahsan/test/ssh.txt"
+    state: touch
+- name: "get ssh key"
+  shell: "cat /home/ahsan/.ssh/id_rsa.pub >> /home/ahsan/test/ssh.txt"

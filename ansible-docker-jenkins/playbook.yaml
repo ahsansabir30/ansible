@@ -1,0 +1,25 @@
+---
+- hosts: worker-group
+  become: true
+  roles:
+  - initialinstalls
+  - pipinstalls
+  - dockerinstall
+
+- hosts: manager-group
+  connection: local
+  become: true
+  roles:
+  - swarminit
+
+- hosts: worker-group
+  become: true
+  roles:
+  - swarmjoin
+
+- hosts: manager-group
+  connection: local
+  become: true
+  roles:
+  - clone-repo
+  - swarm-stack

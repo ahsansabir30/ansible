@@ -1,0 +1,12 @@
+---
+- hosts:  test
+  become: true
+  vars:
+    app_repo: https://gitlab.com/qacdevops/flask-stages.git
+  tasks:
+  - name: "git clone repo"
+    git:
+      repo: "{{ app_repo }}"
+      dest: /home/ahsan/ansible
+      single_branch: yes
+      version: master

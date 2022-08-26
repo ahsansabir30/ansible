@@ -1,0 +1,15 @@
+---
+- hosts: localhost
+  connection: local
+  become: true
+  tasks:
+  - name: run sudo update
+    apt:
+      upgrade: yes
+      update_cache: yes
+      cache_valid_time: 86400 
+    register: sudo_update_info
+
+  - name: print sudo update info
+    debug:
+      msg: "{{sudo_update_info}}"

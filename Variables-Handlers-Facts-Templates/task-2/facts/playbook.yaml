@@ -1,0 +1,11 @@
+---
+- hosts: test
+  become: true
+  tasks:
+  - name: "message"
+    shell: "Hello World"
+    register: result
+  - name: Print message
+    debug:
+      var: "{{ result }}"
+    when: ansible_distribution == "Ubuntu"

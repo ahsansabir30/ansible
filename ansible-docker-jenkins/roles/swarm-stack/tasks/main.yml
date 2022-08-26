@@ -1,0 +1,14 @@
+---
+# tasks file for swarm-stack
+- name: "install packages for stack deployment"
+  pip:
+    name:
+    - jsondiff
+    - pyyaml
+
+- name: "deploy stack using docker compose file"
+  docker_stack:
+    state: present
+    name: mystack
+    compose:
+    - /home/ahsan/projects/ansible-docker-jenkins/trio/docker-compose.yaml

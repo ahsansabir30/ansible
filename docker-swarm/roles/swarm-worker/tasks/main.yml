@@ -1,0 +1,8 @@
+---
+# tasks file for swarm-worker
+- name: "add worker node to swarm"
+  docker_swarm:
+    state: join
+    advertise_addr: worker
+    join_token: "{{ hostvars['ansible']['swarm_info']['swarm_facts']['JoinTokens']['Worker'] }}"
+    remote_addrs: [ 'ansible:2377' ]

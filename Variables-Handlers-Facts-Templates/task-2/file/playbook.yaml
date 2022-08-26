@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+  connection: local
+  become: true
+  vars:
+    ip: "{{ ansible_ssh_host }}"
+  tasks:
+  - name: "make empty file"
+    file:
+      path: "/home/ahsan/projects/Variables-Handlers-Facts-Templates/task-2/file/ip.text"
+      state: touch
+  - local_action: copy content={{ ansible_ssh_host }} dest="/home/ahsan/projects/Variables-Handlers-Facts-Templates/task-2/file/ip.text"

@@ -1,0 +1,6 @@
+---
+# tasks file for clone-repo
+- name: "cloning repo"
+  git: 
+    repo: "https://github.com/RWright1992/trio-task-ex.git"
+    dest: "/home/ahsan/projects/ansible-docker-jenkins/trio"
